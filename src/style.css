@@ -1,3 +1,34 @@
+/* 
+Pallet of colors - look into CSS variables
+
+Background: hsl(206, 30%, 37%)
+Text: hsl(359, 71%, 87%)
+Highlight/shadow: hsl(8, 99%, 71%)
+Alert: hsl(359, 79%, 41%)
+
+*/
+@import url('https://fonts.googleapis.com/css2?family=Keania+One&display=swap');
 body{
-    background-color: goldenrod;
+    background: hsl(206, 30%, 37%);
+    font-size: 28px;
+    margin: 0;
+}
+
+.wrapper{
+    color: hsl(359, 71%, 87%);
+    height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    text-align: center;
+}
+
+.txtTitle{
+    font-family: 'Keania One', cursive;
+    font-size: 4rem;
+    margin: 1rem 1rem;
+    text-decoration: underline;
+}
+
+.txtContent{
+
 }
