@@ -5,7 +5,8 @@ module.exports = {
   mode: 'development',
   entry: {
     index: './src/index.js',
-    print: './src/print.js',
+    ship: './src/ship.js',
+    gameBoard: './src/gameBoard.js',
   },
   devtool: 'inline-source-map',
   devServer: {
