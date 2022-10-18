@@ -12,8 +12,8 @@ const gameBoard = () => ({
   missedShot: [],
   placeShip(length, gridSpaces) {
     // Needs to call back to Ship FF
-    const newShip = ship(length, gridSpaces);
-    return newShip;
+    ship(length, gridSpaces);
+    this.shipLocations.push(gridSpaces);
   },
   receiveAttack(gridSpaces) {
     // Needs to add to missed shots or connect to hit F in ship FF
