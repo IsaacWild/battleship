@@ -12,6 +12,7 @@ body{
     background: hsl(206, 30%, 37%);
     font-size: 28px;
     margin: 0;
+    font-family: 'Keania One', cursive;
 }
 
 .wrapper{
@@ -23,12 +24,42 @@ body{
 }
 
 .txtTitle{
-    font-family: 'Keania One', cursive;
     font-size: 4rem;
     margin: 1rem 1rem;
     text-decoration: underline;
 }
 
-.txtContent{
+.contentWrapper{
+    display: grid;
+    grid-template-rows:  repeat(3 auto);
+    max-width: 80vw;
+    justify-self: center;
+    align-items: center;
+    justify-content: center;
+}
 
+.shipIcon{
+    height: 50vh;
+    justify-self: center;
+}
+
+.inputName{
+    font-family: inherit;
+    font-size: 3rem;
+    text-align: center;
+    padding: 0.3ch;
+    color: hsl(359, 71%, 65%);
+    border-radius: 0.5rem;
+    border: none;
+}
+
+.inputName::placeholder{
+    color: hsl(359, 71%, 75%);
+}
+
+.btnName{
+    font-family: inherit;
+    font-size: 2.5rem;
+    border-radius: 0.5rem;
+    border: none;
 }

@@ -14,6 +14,7 @@ const gameBoard = () => ({
     // Needs to call back to Ship FF
     const newShip = ship(length, gridSpaces);
     this.shipLocations.push(gridSpaces);
+    return { newShip };
   },
 });
 
