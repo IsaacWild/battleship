@@ -8,19 +8,26 @@ This needs to a factory function that calls back to the ship factory function to
 import ship from './ship';
 
 const gameBoard = () => ({
-  shipLocations: [],
+  activeShipLocations: [],
   ships: [],
   missedShots: [],
   placeShip(length, gridSpaces) {
     const newShip = ship(length, gridSpaces);
     this.ships.push(newShip);
-    this.shipLocations.push(gridSpaces);
+    this.activeShipLocations.push(gridSpaces);
     return { newShip };
   },
   receiveAttack(attackSpace) {
-    for (let i = 0; i < this.shipLocations.length; i++) {
-      if (attackSpace === this.shipLocations[i]) {
+    for (let i = 0; i < this.activeShipLocations.length; i++) {
+      if (attackSpace === this.activeShipLocations[i]) {
         // send hit to correct ship
+        this.ships.forEach((gridSpaces) => {
+          if (attackSpace === gridSpaces) {
+            this.newShip.hit(attackSpace);
+          }
+        });
+        // remove grid location from activeShipLocations
+        this.activeShipLocations.splice(i, 1);
       } else {
         this.missedShots.push(attackSpace);
       }

@@ -11,6 +11,12 @@ test('hit function adds to the hitSpaces correctly', () => {
   expect(ship2.hitSpaces[0]).toBe('A1');
 });
 
+test('hit function adjusts health', () => {
+  const ship2 = ship(5, ['A1', 'A2', 'A3', 'A4', 'A5']);
+  ship2.hit('A1');
+  expect(ship2.health).toBe(4);
+});
+
 test('when all spaces are hit ship sunk = true', () => {
   const ship3 = ship(5, ['A1', 'A2', 'A3', 'A4', 'A5']);
   ship3.hit('A1');

@@ -9,7 +9,7 @@ test('Makes a ship of lenght 3', () => {
 test('Ships locations are stored in the player board correctly', () => {
   const playerBoard = gameBoard();
   const placeNewShip = playerBoard.placeShip(5, ['A1', 'A2', 'A3', 'A4', 'A5']);
-  expect(playerBoard.shipLocations).toStrictEqual([['A1', 'A2', 'A3', 'A4', 'A5']]);
+  expect(playerBoard.activeShipLocations).toStrictEqual([['A1', 'A2', 'A3', 'A4', 'A5']]);
 });
 
 test('Missed shot is recorded correctly', () => {
@@ -19,9 +19,9 @@ test('Missed shot is recorded correctly', () => {
   expect(playerBoard.missedShots).toStrictEqual(['B2']);
 });
 
-// test('Hit gets passed to ship and hit function works as intended', () => {
-//   const playerBoard = gameBoard();
-//   const placeNewShip = playerBoard.placeShip(3, ['A1', 'A2', 'A3']);
-//   playerBoard.receiveAttack('A1');
-//   expect(placeNewShip.health).toBe(2);
-// });
+test('Hit gets passed to ship and hit function works as intended', () => {
+  const playerBoard = gameBoard();
+  const placeNewShip = playerBoard.placeShip(3, ['A1', 'A2', 'A3']);
+  playerBoard.receiveAttack('A1');
+  expect(placeNewShip.newShip.health).toBe(2);
+});
