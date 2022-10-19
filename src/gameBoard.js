@@ -9,12 +9,22 @@ import ship from './ship';
 
 const gameBoard = () => ({
   shipLocations: [],
-  missedShot: [],
+  ships: [],
+  missedShots: [],
   placeShip(length, gridSpaces) {
-    // Needs to call back to Ship FF
     const newShip = ship(length, gridSpaces);
+    this.ships.push(newShip);
     this.shipLocations.push(gridSpaces);
     return { newShip };
+  },
+  receiveAttack(attackSpace) {
+    for (let i = 0; i < this.shipLocations.length; i++) {
+      if (attackSpace === this.shipLocations[i]) {
+        // send hit to correct ship
+      } else {
+        this.missedShots.push(attackSpace);
+      }
+    }
   },
 });
 
