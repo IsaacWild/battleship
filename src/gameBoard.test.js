@@ -19,9 +19,9 @@ test('Missed shot is recorded correctly', () => {
   expect(playerBoard.missedShots).toStrictEqual(['B2']);
 });
 
-test('Hit gets passed to ship and hit function works as intended', () => {
+test('Hit function reduces health by 1 from gameBoard', () => {
   const playerBoard = gameBoard();
-  const placeNewShip = playerBoard.placeShip(3, ['A1', 'A2', 'A3']);
+  const submarine = playerBoard.placeShip(3, ['A1', 'A2', 'A3']);
   playerBoard.receiveAttack('A1');
-  expect(placeNewShip.newShip.health).toBe(2);
+  expect(submarine.newShip.health).toBe(2);
 });

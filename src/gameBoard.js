@@ -21,11 +21,14 @@ const gameBoard = () => ({
     for (let i = 0; i < this.activeShipLocations.length; i++) {
       if (attackSpace === this.activeShipLocations[i]) {
         // send hit to correct ship
-        this.ships.forEach((gridSpaces) => {
-          if (attackSpace === gridSpaces) {
-            this.newShip.hit(attackSpace);
-          }
-        });
+        for (let i = 0; i < this.ships.length; i++) {
+          const e = this.ships[i];
+          e.gridSpaces.forEach((space) => {
+            if (attackSpace === space) {
+              e.newShip.hit(attackSpace);
+            }
+          });
+        }
         // remove grid location from activeShipLocations
         this.activeShipLocations.splice(i, 1);
       } else {
@@ -36,3 +39,7 @@ const gameBoard = () => ({
 });
 
 module.exports = gameBoard;
+
+/*
+
+*/
